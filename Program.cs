@@ -13,7 +13,7 @@ namespace CheckDBSize
     {
         static void Main(string[] args)
         {
-            string sqlcon = "Server=storesysdb01;Database=StoreSys; Integrated Security=SSPI";
+            string sqlcon = "db01;Database=Store; Integrated Security=SSPI";
             string _sqlcon = sqlConn.Connection(sqlcon);
             Console.WriteLine(_sqlcon);
             string sqlQuery = "SELECT StoreId,Status,IPAddress FROM stores where status = 'Open'";
@@ -28,7 +28,7 @@ namespace CheckDBSize
                 string storeid = row["storeid"].ToString();
                 string ipAddress = row["IPAddress"].ToString();
 
-                storeDB = "Server=" + ipAddress + ";Database=xstore;User Id=2wow05;Password=$98q442x;Connection Timeout=60";
+                storeDB = "Server=" + ipAddress + ";Database=xstore;User Id=user;Password=pass;Connection Timeout=60";
 
                 using (SqlConnection _storeDB = new SqlConnection())
                 {
